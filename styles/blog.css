@@ -1,0 +1,40 @@
+article{
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+}
+
+article > pre{
+    text-align: center;
+    font-size: 1.5em;
+    background-color: grey;
+}
+article > h1{
+    text-align: center;
+    font-size: 32px;
+}
+article > h2{
+    text-align: center;
+    font-size: 28px;
+}
+article > h3{
+    text-align: center;
+    font-size: 24px;
+}
+article > code{
+    text-align: center;
+    font-size: 24px;
+    background-color: blue;
+}
+article > p > a{
+    text-decoration: underline;
+}
+article > p > img{
+    align-self: center;
+    margin: auto;
+    width: 100%;
+    height: 16em;
+}
