@@ -18,16 +18,15 @@ function NavItem({ href, text }) {
 export default function Container(props) {
 	const [mounted, setMounted] = useState(false);
 	const { resolvedTheme, setTheme } = useTheme();
-
 	// After mounting, we have access to the theme
 	useEffect(() => setMounted(true), []);
-
-	const { children, ...customMeta } = props;
+	
+	const { children, customMeta } = props;
 	const router = useRouter();
 	const meta = {
 		title: "Matt – Web Developer",
 		description: `Front-end developer, JavaScript enthusiast.`,
-		image: "https://leerob.io/static/images/lee-banner.png",
+		image: "/banner.png",
 		type: "website",
 		...customMeta,
 	};
@@ -38,8 +37,8 @@ export default function Container(props) {
 				<title>{meta.title}</title>
 				<meta name="robots" content="follow, index" />
 				<meta content={meta.description} name="description" />
-				<meta property="og:url" content={`https://leerob.io${router.asPath}`} />
-				<link rel="canonical" href={`https://leerob.io${router.asPath}`} />
+				{/* <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
+				<link rel="canonical" href={`https://leerob.io${router.asPath}`} /> */}
 				<meta property="og:type" content={meta.type} />
 				<meta property="og:site_name" content="Matt Larose" />
 				<meta property="og:description" content={meta.description} />
@@ -55,10 +54,10 @@ export default function Container(props) {
 						add hambuger box menu
 					</a>
 					<div className="">
-						<NavItem className="text-sm p-4" href="/home" text="Home" />
-						<NavItem className="text-sm p-4" href="/" text="Main" />
+						<NavItem className="text-sm p-4" href="/" text="Home" />
+						<NavItem className="text-sm p-4" href="/main" text="Main" />
 						<NavItem className="text-sm p-4" href="/blog" text="Blog" />
-						<NavItem className="text-sm p-4" href="/contact" text="contact" />
+						<NavItem className="text-sm p-4" href="/contact" text="Contact" />
 						<NavItem className="text-sm p-4" href="/login" text="Login" />
 					</div>
 					<button

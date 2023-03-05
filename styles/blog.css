@@ -1,40 +1,40 @@
-article{
-    justify-content: center;
-    justify-items: center;
-    align-content: center;
-    align-items: center;
-    margin: auto;
-    text-align: center;
+input[type=checkbox] {
+    position: relative;
+    cursor: pointer;
+    margin-right: 5px;
 }
-
-article > pre{
-    text-align: center;
-    font-size: 1.5em;
-    background-color: grey;
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 0;
+    left: 0;
+    background-color:#797777;
+    border-radius: 4px;
 }
-article > h1{
-    text-align: center;
-    font-size: 32px;
+input[type=checkbox]:checked:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    top: 0;
+    left: 0;
+    background-color:#1E80EF;
 }
-article > h2{
-    text-align: center;
-    font-size: 28px;
-}
-article > h3{
-    text-align: center;
-    font-size: 24px;
-}
-article > code{
-    text-align: center;
-    font-size: 24px;
-    background-color: blue;
-}
-article > p > a{
-    text-decoration: underline;
-}
-article > p > img{
-    align-self: center;
-    margin: auto;
-    width: 100%;
-    height: 16em;
+input[type=checkbox]:checked:after {
+    content: " ";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
 }
