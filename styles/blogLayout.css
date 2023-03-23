@@ -38,3 +38,9 @@ input[type=checkbox]:checked:after {
     top: 2px;
     left: 6px;
 }
+
+p > code {
+    background-color:#30C5FF;
+    color: black;
+    padding: 0 5px;
+}

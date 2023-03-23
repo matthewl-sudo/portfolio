@@ -1,15 +1,16 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import NextLink from "next/link";
+import Footer from "./Footer";
 
 function NavItem({ href, text }) {
 	const router = useRouter();
 	const isActive = router.asPath === href;
 
 	return (
-		<NextLink href={href}>
+		<NextLink className={isActive ? "pb-2 border-b-2 border-black dark:border-b-white" : "" } href={href}>
 			<span className="p-3">{text}</span>
 		</NextLink>
 	);
@@ -22,7 +23,6 @@ export default function Container(props) {
 	useEffect(() => setMounted(true), []);
 	
 	const { children, customMeta } = props;
-	const router = useRouter();
 	const meta = {
 		title: "Matt – Web Developer",
 		description: `Front-end developer, JavaScript enthusiast.`,
@@ -37,8 +37,6 @@ export default function Container(props) {
 				<title>{meta.title}</title>
 				<meta name="robots" content="follow, index" />
 				<meta content={meta.description} name="description" />
-				{/* <meta property="og:url" content={`https://leerob.io${router.asPath}`} />
-				<link rel="canonical" href={`https://leerob.io${router.asPath}`} /> */}
 				<meta property="og:type" content={meta.type} />
 				<meta property="og:site_name" content="Matt Larose" />
 				<meta property="og:description" content={meta.description} />
@@ -101,7 +99,7 @@ export default function Container(props) {
 				className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
 			>
 				{children}
-				footer goes here
+				<Footer/>
 			</main>
 		</div>
 	);

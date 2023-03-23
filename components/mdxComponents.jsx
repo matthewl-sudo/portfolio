@@ -33,8 +33,8 @@ const H1tag = ({id, children}) => {
 const H2tag = ({id, children}) => {
     if (id) {
         return (
-            <h1 className="text-2xl font-semibold mb-4 mt-4"
-            id={`#${id}`} >{children}</h1>
+            <h2 className="text-2xl font-semibold mb-4 mt-4"
+            id={`#${id}`} >{children}</h2>
         );
     }
     return (<h2 className="text-2xl font-semibold mb-4 mt-4">{children}</h2>)
@@ -58,7 +58,7 @@ const OlTag = ({children}) => {
 
 const PreTag = ({children}) => {
     return(
-        <pre className="dark:bg-gray-300 bg-gray-200 rounded shadow-lg pre-tag"
+        <pre className="dark:bg-gray-300 bg-gray-200 rounded p-1 shadow-lg pre-tag"
             style={{fontSize: '0.9rem'}}>
                 {children}
         </pre>
@@ -105,7 +105,7 @@ const LinkTag = (props) => {
                 document.getElementById(href).scrollIntoView({behavior: 'smooth'})
             }
         }
-        className="text-blue-600 font-bold underline dark:text-blue-500" {...props} />;
+        className=" text-blue-900 capitalize font-bold underline dark:text-blue-500" {...props} />;
     }
     return <a className="text-blue-900 font-bold underline dark:text-blue-500" target="_blank" rel="noopener noreferrer" {...props} />;
 };
@@ -123,6 +123,14 @@ const BlockQuoteTag = ({children}) =>{
    )
 }
 
+const CodeTag = ({children}) =>{
+    return(
+         <code className="text-black">
+             {children}
+         </code>  
+    )
+ }
+
 export const mdxComponents = {
     p: Ptag, 
     h1: H1tag, 
@@ -139,5 +147,5 @@ export const mdxComponents = {
     td: TdTag,
     Mermaid,
     a: LinkTag,
-    blockquote: BlockQuoteTag
+    blockquote: BlockQuoteTag,
 }

@@ -4,8 +4,8 @@ import styles from "../../styles/Home.module.css";
 
 export default function contact() {
 	return (
-		<div className={styles.main2}>
-			<span className="text-2xl uppercase bg-gray-100 underline">
+		<div className="">
+			<span className="text-2xl uppercase underline">
 				this is the contact page
 			</span>
 			<p className="text-lg font-lg">

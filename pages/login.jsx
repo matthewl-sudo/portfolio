@@ -1,7 +1,6 @@
 import React from "react";
 import { useSession as thisSession, signIn, signOut } from "next-auth/react";
 import Container from "../components/Container";
-import styles from "../styles/Home.module.css";
 
 export default function login() {
 	// React 18 namespaced hooks with the 'Use' prefix, so we change 'useSession' to 'thisSession' to avoid conflict

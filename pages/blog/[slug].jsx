@@ -2,7 +2,7 @@ import React from 'react'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import  client from '../../lib/sanityClient'
-import { blogPostSlugsQuery, getBlogBySlugQuery } from '../../lib/queries'
+import { getBlogPostSlugPaths, getBlogBySlugQuery } from '../../lib/queries'
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import {remarkHeadingId} from 'remark-custom-heading-id';
@@ -28,7 +28,8 @@ const BlogArticle = ({post, source}) => {
 export default BlogArticle;
 
 export async function getStaticPaths(){
-    const posts = await client.fetch(blogPostSlugsQuery);
+    // getting slug paths
+    const posts = await client.fetch(getBlogPostSlugPaths);
     return {
         paths: posts.map((post) => ({
             params: {
@@ -40,7 +41,6 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({params: {slug}}) {
-
     const post = await client.fetch(getBlogBySlugQuery(slug));
     // MDX text - can be from a local file, database, anywhere
     const source = post.body;
