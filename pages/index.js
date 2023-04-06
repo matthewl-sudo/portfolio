@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import Container from '../components/Container'
 import LoginBtn from '../components/LoginBtn'
+import TypingAnimation from '../components/TypingAnimation'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
+        <div className='max-w-7xl m-auto h-96 justify-center items-center w-full' style={{ backgroundImage: 'url(https://512pixels.net/downloads/macos-wallpapers-thumbs/10-2--thumb.png)', backgroundPosition: "center" }}>
+          <TypingAnimation />
+        </div>
         <LoginBtn />
 
       </Container>

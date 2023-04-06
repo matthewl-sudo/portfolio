@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import NextLink from "next/link";
@@ -8,9 +8,13 @@ import Footer from "./Footer";
 function NavItem({ href, text }) {
 	const router = useRouter();
 	const isActive = router.asPath === href;
-
 	return (
-		<NextLink className={isActive ? "pb-2 border-b-2 border-black dark:border-b-white" : "" } href={href}>
+		<NextLink
+			className={
+				isActive ? "pb-2 border-b-2 border-black dark:border-b-white" : ""
+			}
+			href={href}
+		>
 			<span className="p-3">{text}</span>
 		</NextLink>
 	);
@@ -21,7 +25,7 @@ export default function Container(props) {
 	const { resolvedTheme, setTheme } = useTheme();
 	// After mounting, we have access to the theme
 	useEffect(() => setMounted(true), []);
-	
+
 	const { children, customMeta } = props;
 	const meta = {
 		title: "Matt – Web Developer",
@@ -96,10 +100,10 @@ export default function Container(props) {
 			</div>
 			<main
 				id="skip"
-				className="flex flex-col justify-center px-8 bg-gray-50 dark:bg-gray-900"
+				className="flex flex-col justify-center bg-gray-50 dark:bg-gray-900"
 			>
 				{children}
-				<Footer/>
+				<Footer />
 			</main>
 		</div>
 	);
