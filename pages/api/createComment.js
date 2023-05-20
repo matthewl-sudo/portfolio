@@ -16,7 +16,7 @@ export default async function createComment(req, res) {
             email,
             comment,
             imageUrl,
-            approved: Boolean(approved),
+            approved: approved == 'true',
         })
     } catch (err) {
         console.error(err)

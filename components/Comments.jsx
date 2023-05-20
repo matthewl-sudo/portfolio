@@ -9,7 +9,7 @@ const Comments = ({ comments = [], _id }) => {
 	const { data: session } = useSession();
 
 	return (
-		<div className="antialiased mx-auto max-w-screen-md mt-16 border-t-4">
+		<section className="antialiased mx-auto max-w-screen-md mt-16 border-t-4">
 			<h3 className="my-4 text-center text-2xl underline font-semibold dark:text-stone-100 text-gray-900">
 				Comments
 			</h3>
@@ -20,7 +20,7 @@ const Comments = ({ comments = [], _id }) => {
 			</div>
 			{session && <Form _id={_id} session={session} />}
 			<LoginBtn />
-		</div>
+		</section>
 	);
 };
 

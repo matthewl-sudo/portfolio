@@ -44,14 +44,14 @@ export default function Form({ _id, session }) {
 		// Returns a "Submitting comment" state if being processed
 		return <h3>Submitting comment…</h3>;
 	}
-	if (!hasSubmitted) {
-		// function timeOut() {
-		// 	const time = setTimeout(() => {
-		// 		setShowToast(false);
-		// 	}, 5000);
-		// 	return () => clearTimeout(time);
-		// }
-		// timeOut();
+	if (hasSubmitted) {
+		function timeOut() {
+			const time = setTimeout(() => {
+				setShowToast(false);
+			}, 8000);
+			return () => clearTimeout(time);
+		}
+		timeOut();
 		// Returns the data that the user submitted for them to preview after submission
 		return (
 			<>
@@ -121,7 +121,7 @@ export default function Form({ _id, session }) {
 				{...register("approved")}
 				type="hidden"
 				name="approved"
-				value={isGHUser ? true : false}
+				value={isGHUser}
 			/>
 			<input
 				{...register("imageUrl")}
