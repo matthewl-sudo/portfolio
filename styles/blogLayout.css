@@ -44,3 +44,11 @@ p > code {
 	color: black;
 	padding: 0 5px;
 }
+
+.sticky-nav{
+	position: sticky;
+	position: -webkit-sticky;
+	top: 7em;
+	left: 0.5em;
+	max-height: calc(100vh - 40px);
+}

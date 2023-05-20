@@ -9,6 +9,7 @@ import { remarkHeadingId } from "remark-custom-heading-id";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import remarkGfm from "remark-gfm";
+import getHeadings from "../../lib/getHeadings";
 
 import { mdxComponents } from "../../components/mdxComponents";
 
@@ -16,10 +17,12 @@ import { mdxComponents } from "../../components/mdxComponents";
 import BlogLayout from "../../layouts/blogLayout";
 import Comments from "../../components/Comments";
 
-const BlogArticle = ({ post, source }) => {
+
+const BlogArticle = ({ post, source, headings }) => {
+
 	// console.log(post);
 	return (
-		<BlogLayout props={post}>
+		<BlogLayout props={post} headings={headings}>
 			<MDXRemote {...source} components={mdxComponents} />
 			<Comments comments={post?.comments} _id={post._id} />
 		</BlogLayout>
@@ -55,10 +58,13 @@ export async function getStaticProps({ params: { slug } }) {
 			],
 		},
 	});
+	const headings = await getHeadings(source);
+
 	return {
 		props: {
 			post,
 			source: mdxSource,
+			headings,
 		},
 	};
 }

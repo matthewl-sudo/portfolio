@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Container from "../components/Container";
+import TableOfContents from "../components/TableOfContents";
 import { urlFor } from "../lib/sanityClient";
 import "../styles/blogLayout.css";
 
-const BlogLayout = ({ props, children }) => {
+const BlogLayout = ({ props, headings, children }) => {
 	const {
 		author,
 		categories,
@@ -23,9 +24,10 @@ const BlogLayout = ({ props, children }) => {
 	};
 	return (
 		<Container customMeta={metaProps}>
-			<div className="container px-5 mx-auto">
-				<div className="flex flex-wrap m-4">
-					<div className="max-w-screen-xl mx-auto">
+			<div className="container block px-5 mx-auto">
+				<div className="flex h-full mx-auto">
+					<TableOfContents headings={headings}/>
+					<div className="max-w-screen-xl">
 						<div
 							className="mb-4 md:mb-0 w-full max-w-screen-md mx-auto relative"
 							style={{ maxWidth: "45em" }}
@@ -37,7 +39,7 @@ const BlogLayout = ({ props, children }) => {
 								<img
 									src={urlFor(mainImage).url()}
 									alt={mainImage.caption}
-									className=" left-0 top-0 w-50 h-50 z-0"
+									className="mx-auto left-0 top-0 w-50 h-50 z-0"
 								/>
 								<p className="font-semibold text-400 text-sm">
 									{" "}
@@ -62,9 +64,8 @@ const BlogLayout = ({ props, children }) => {
 								{categories[0].title}
 							</a>
 						</div>
-						<article
+						<article 
 							className="px-4 lg:px-0 max-w-screen-md mx-auto text-lg leading-relaxed"
-							style={{ maxWidth: "45em" }}
 						>
 							{children}
 						</article>

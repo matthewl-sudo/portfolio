@@ -46,7 +46,14 @@ const H2tag = ({ id, children }) => {
 	return <h2 className="text-2xl font-semibold mb-4 mt-4">{children}</h2>;
 };
 
-const H3tag = ({ children }) => {
+const H3tag = ({ id, children }) => {
+    if (id) {
+		return (
+			<h3 className="text-xl font-semibold mb-3 mt-4" id={`#${id}`}>
+				{children}
+			</h3>
+		);
+	}
 	return <h3 className="text-xl font-semibold mb-3 mt-4">{children}</h3>;
 };
 
@@ -102,7 +109,7 @@ const ThTag = ({ children }) => {
 
 const TdTag = ({ children }) => {
 	return (
-		<td className="text-sm text-900 font-light px-6 py-4 border whitespace-nowrap">
+		<td className="text-sm text-900 font-light px-6 py-4 border whitespace-wrap">
 			{children}
 		</td>
 	);
