@@ -17,9 +17,9 @@ function Comment({ props }) {
 					alt={name + "profile pic"}
 				/>
 			</div>
-			<div className="flex-1  rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+			<div className="flex-1 rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
 				<a href={`mailto:${email}`}>
-					<strong>{name}</strong>{" "}
+					<strong>{name.split(" ", 1)[0]}</strong>{" "}
 				</a>
 				<span className="text-xs text-gray-400">
 					{new Date(_createdAt).toLocaleTimeString([], {
@@ -31,8 +31,8 @@ function Comment({ props }) {
 					})}
 				</span>
 				<p className="text-sm">{comment}</p>
-				<div className="mt-4 flex items-center">
-					{/* <div className="flex -space-x-2 mr-2">
+				{/* <div className="mt-4 flex items-center">
+					<div className="flex -space-x-2 mr-2">
 						<img
 							className="rounded-full w-6 h-6 border border-white"
 							src={
@@ -43,8 +43,8 @@ function Comment({ props }) {
 							alt=""
 						/>
 					</div>
-					<div className="text-sm text-gray-500 font-semibold">5 Replies</div> */}
-				</div>
+					<div className="text-sm text-gray-500 font-semibold">5 Replies</div>
+				</div> */}
 			</div>
 		</div>
 	);
