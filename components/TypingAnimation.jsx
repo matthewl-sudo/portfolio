@@ -47,6 +47,7 @@ export default function TypingAnimation() {
 								+
 							</li>
 						</ul>
+						<div className="text-center">bash -- 70x32</div>
 					</div>
 					<h2 className="font-medium absolute bottom-0 left-0 flex float-left flex-col lg:block text-center pl-8 py-6 text-sm md:text-3xl sm:text-lg tracking-tight">
 						<span className="mb-2 lg:mb-0 ">My name is </span>{" "}
