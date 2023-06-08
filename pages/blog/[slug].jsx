@@ -17,9 +17,7 @@ import { mdxComponents } from "../../components/mdxComponents";
 import BlogLayout from "../../layouts/blogLayout";
 import Comments from "../../components/Comments";
 
-
 const BlogArticle = ({ post, source, headings }) => {
-
 	// console.log(post);
 	return (
 		<BlogLayout props={post} headings={headings}>
