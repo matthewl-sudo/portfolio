@@ -2,10 +2,17 @@ import React from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import Mermaid from "./Mermaid";
 
-const Mermaid = dynamic(() => import("./Mermaid"), {
-	ssr: false,
-});
+// issue dynamic import causes overwritten mermaid diagrams
+// cannot find a better solution to hydration error other than surpressHydrationWarning.
+
+// const Mermaid = dynamic(() => import("./Mermaid"), {
+// 	loading: () => <p>Loading...</p>,
+// 	ssr: false,
+// });
+
+// const Mermaid = React.lazy(() => import("./Mermaid"));
 
 const ImgTag = (props) => {
 	return (
@@ -47,7 +54,7 @@ const H2tag = ({ id, children }) => {
 };
 
 const H3tag = ({ id, children }) => {
-    if (id) {
+	if (id) {
 		return (
 			<h3 className="text-xl font-semibold mb-3 mt-4" id={`#${id}`}>
 				{children}
