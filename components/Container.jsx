@@ -28,7 +28,7 @@ export default function Container(props) {
 
 	const { children, customMeta } = props;
 	const meta = {
-		title: "Matt – Web Developer",
+		title: "Matt - Web Developer",
 		description: `Front-end developer, JavaScript enthusiast.`,
 		image: "/banner.png",
 		type: "website",
