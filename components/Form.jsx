@@ -113,7 +113,7 @@ export default function Form({ _id, session }) {
 		// Sets up the Form markup
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="w-full max-w-3xl border-blue-700 border my-10 m-auto "
+			className="w-full max-w-3xl border-cyan-500/50 border-2 border-opacity-10 rounded-md shadow-lg shadow-cyan-500/50 my-10 m-auto "
 			disabled
 		>
 			<input {...register("_id")} type="hidden" name="_id" value={_id} />
@@ -148,7 +148,7 @@ export default function Form({ _id, session }) {
 				</span>
 				<textarea
 					{...register("comment", { required: true })}
-					className="form-textarea mt-1 pl-3 block w-full"
+					className="form-textarea mt-1 mx-auto pl-3 block w-4/5"
 					rows="4"
 					placeholder="Enter some long form content."
 					maxLength={250}

@@ -25,7 +25,7 @@ function TableOfContents({ headings }) {
 											)
 											.scrollIntoView({ behavior: "smooth" });
 									}}
-								>{`∘ ${heading.text.replace(/ /g, "-").toLowerCase()}`}</a>
+								>{`∘ ${heading.text.replace(/ /g, " ").toLowerCase()}`}</a>
 							</li>
 						))}
 					</ol>
