@@ -22,7 +22,7 @@ export default function login() {
 			<Container>
 				<div className="min-h-screen block justify-between p-24 items-center">
 					<p className="text-lg font-lg">You are not signed in</p>
-					<button className="border rounded btn mt-8" onClick={() => signIn()}>
+					<button className="border rounded btn mt-8" onClick={(e) =>{e.preventDefault(); signIn()}}>
 						Sign In
 					</button>
 				</div>
