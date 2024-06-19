@@ -17,12 +17,12 @@ import { mdxComponents } from "../../components/mdxComponents";
 import BlogLayout from "../../layouts/blogLayout";
 import Comments from "../../components/Comments";
 
-const BlogArticle = ({ post, source, headings }) => {
+const BlogArticle = ({ post, source, headings, comments }) => {
 	// console.log(post);
 	return (
 		<BlogLayout props={post} headings={headings}>
 			<MDXRemote {...source} components={mdxComponents} />
-			<Comments comments={post?.comments} _id={post._id} />
+			<Comments comments={comments} _id={post._id} />
 		</BlogLayout>
 	);
 };
@@ -54,6 +54,7 @@ export async function getStaticProps({ params: { slug } }) {
 		publishedAt,
 		metaDescription,
 		body: source,
+		comments,
 	} = post;
 	const mdxSource = await serialize(source, {
 		mdxOptions: {
@@ -80,6 +81,7 @@ export async function getStaticProps({ params: { slug } }) {
 			},
 			source: mdxSource,
 			headings,
+			comments: comments,
 		},
 	};
 }
