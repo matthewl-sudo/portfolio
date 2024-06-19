@@ -40,12 +40,13 @@ input[type="checkbox"]:checked:after {
 }
 
 p > code {
-	background-color: #30c5ff;
+	background-color: #d0ebf6;
 	color: black;
-	padding: 0 5px;
+	padding: 0 4px;
+	font-size: larger;
 }
 
-.sticky-nav{
+.sticky-nav {
 	position: sticky;
 	position: -webkit-sticky;
 	top: 7em;
@@ -55,4 +56,10 @@ p > code {
 
 .mermaid svg {
 	margin: 10px auto;
+}
+
+@media (max-width: 768px) {
+	.mobile {
+		display: block;
+	}
 }

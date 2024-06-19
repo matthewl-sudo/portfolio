@@ -3,7 +3,7 @@ import "../styles/blogLayout.css";
 
 function TableOfContents({ headings }) {
 	return (
-		<aside className="h-screen w-full hidden sm:block sm:w-60 dark:bg-gray-900 dark:text-gray-100">
+		<aside className=" w-full hidden md:block sm:w-60 dark:bg-gray-900 dark:text-gray-100">
 			<nav className="sticky-nav z-20 w-full self-start space-y-4 text-sm">
 				<h2 className="text-sm font-semibold tracking-widest uppercase dark:text-gray-400">
 					Table of Contents

@@ -25,8 +25,8 @@ const BlogLayout = ({ props, headings, children }) => {
 	return (
 		<Container customMeta={metaProps}>
 			<div className="container block px-5 mx-auto">
-				<div className="flex h-full mx-auto">
-					<TableOfContents headings={headings}/>
+				<div className="flex mobile h-full mx-auto">
+					<TableOfContents headings={headings} />
 					<div className="max-w-screen-xl">
 						<div
 							className="mb-4 md:mb-0 w-full max-w-screen-md mx-auto relative"
@@ -64,9 +64,7 @@ const BlogLayout = ({ props, headings, children }) => {
 								{categories[0].title}
 							</a>
 						</div>
-						<article 
-							className="px-4 lg:px-0 max-w-screen-md mx-auto text-lg leading-relaxed"
-						>
+						<article className="px-4 lg:px-0 max-w-screen-md mx-auto text-lg leading-relaxed">
 							{children}
 						</article>
 					</div>
