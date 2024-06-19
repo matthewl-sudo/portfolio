@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import NextLink from "next/link";
 import Footer from "./Footer";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 function NavItem({ href, text }) {
 	const router = useRouter();
@@ -60,7 +61,6 @@ export default function Container(props) {
 						<NavItem className="text-sm p-4" href="/main" text="Main" />
 						<NavItem className="text-sm p-4" href="/blog" text="Blog" />
 						<NavItem className="text-sm p-4" href="/contact" text="Contact" />
-						<NavItem className="text-sm p-4" href="/login" text="Login" />
 					</div>
 					<button
 						aria-label="Toggle Dark Mode"
@@ -96,6 +96,12 @@ export default function Container(props) {
 							</svg>
 						)}
 					</button>
+					<SignedOut>
+						<SignInButton />
+					</SignedOut>
+					<SignedIn>
+						<UserButton />
+					</SignedIn>
 				</nav>
 			</header>
 			<main

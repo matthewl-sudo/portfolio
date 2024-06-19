@@ -45,7 +45,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
 	const post = await client.fetch(getBlogBySlugQuery(slug));
 	// MDX text - can be from a local file, database, anywhere
-	const source = post.body;
+	const {
+		author,
+		categories,
+		mainImage,
+		title,
+		minutesToRead,
+		publishedAt,
+		metaDescription,
+		body: source,
+	} = post;
 	const mdxSource = await serialize(source, {
 		mdxOptions: {
 			remarkPlugins: [remarkGfm, remarkHeadingId],
@@ -60,7 +69,15 @@ export async function getStaticProps({ params: { slug } }) {
 
 	return {
 		props: {
-			post,
+			post: {
+				author,
+				categories,
+				mainImage,
+				title,
+				minutesToRead,
+				publishedAt,
+				metaDescription,
+			},
 			source: mdxSource,
 			headings,
 		},

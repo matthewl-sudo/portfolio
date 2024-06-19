@@ -6,10 +6,12 @@ import cn from "classnames";
 
 export default function Form({ _id, session }) {
 	// Sets up basic data state
-	const isGHUser =
-		session.user.image.split(".com", 1)[0] ==
-		"https://avatars.githubusercontent";
-	const firstName = session.user.name.split(" ", 1)[0];
+	const isGHUser = session?.username;
+
+	const firstName =
+		session.fullName?.split(" ")[0] +
+		" " +
+		session.fullName?.split(" ")[1].charAt(0);
 
 	const [formData, setFormData] = useState();
 
@@ -60,8 +62,8 @@ export default function Form({ _id, session }) {
 						<img
 							className="mt-4 rounded-full w-8 h-8 sm:w-10 sm:h-10"
 							src={
-								session.user.image
-									? session.user.image
+								session?.imageUrl
+									? session?.imageUrl
 									: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
 							}
 							alt=""
@@ -121,25 +123,25 @@ export default function Form({ _id, session }) {
 				{...register("approved")}
 				type="hidden"
 				name="approved"
-				value={isGHUser}
+				value={isGHUser ? true : false}
 			/>
 			<input
 				{...register("imageUrl")}
 				type="hidden"
 				name="imageUrl"
-				value={session.user.image}
+				value={session?.imageUrl}
 			/>
 			<input
 				{...register("name")}
 				type="hidden"
 				name="name"
-				value={session.user.name}
+				value={session?.fullName ? session?.fullName : session?.username}
 			/>
 			<input
 				{...register("email")}
 				type="hidden"
 				name="email"
-				value={session.user.email}
+				value={session?.emailAddresses[0].emailAddress}
 			/>
 
 			<label className="block mb-5">
@@ -150,7 +152,7 @@ export default function Form({ _id, session }) {
 					{...register("comment", { required: true })}
 					className="form-textarea mt-1 pl-3 block w-full"
 					rows="4"
-					placeholder="Enter some long form content."
+					placeholder="Your Comment"
 					maxLength={250}
 				/>
 			</label>

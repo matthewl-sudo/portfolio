@@ -1,12 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { useSession } from "next-auth/react";
 import Comment from "./Comment";
 import Form from "./Form";
-import LoginBtn from "./LoginBtn";
+import { useUser, SignInButton } from "@clerk/nextjs";
 
 const Comments = ({ comments = [], _id }) => {
-	const { data: session } = useSession();
+	const { user } = useUser();
 
 	return (
 		<section className="antialiased mx-auto max-w-screen-md mt-16 border-t-4">
@@ -18,8 +17,8 @@ const Comments = ({ comments = [], _id }) => {
 					<Comment props={comment} key={comment._id} />
 				))}
 			</div>
-			{session && <Form _id={_id} session={session} />}
-			<LoginBtn />
+			{user && <Form _id={_id} session={user} />}
+			{!user && <SignInButton />}
 		</section>
 	);
 };
