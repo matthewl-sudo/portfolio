@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { remarkHeadingId } from "remark-custom-heading-id";
 import rehypeHighlight from "rehype-highlight";
+// import "highlight.js/styles/github-dark.css";
 import "highlight.js/styles/atom-one-dark.css";
 import remarkGfm from "remark-gfm";
 import getHeadings from "../../lib/getHeadings";
